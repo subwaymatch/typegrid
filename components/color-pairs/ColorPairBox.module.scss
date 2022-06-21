@@ -17,7 +17,7 @@
   .bottomBar {
     display: flex;
     justify-content: space-between;
-    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
     color: #999;
     background-color: #fff;
 
@@ -43,9 +43,9 @@
     }
   }
 
-  &.firstInRow {
+  &.lastInRow {
     .bottomBar {
-      border-left: none;
+      border-right: none;
     }
   }
 }

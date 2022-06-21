@@ -32,7 +32,7 @@ export default function ColorPairsList({ pairs }: IProps) {
           key={pair.fontColor.hex() + pair.bgColor.hex()}
           pair={pair}
           flexBasis={flexBasis}
-          isFirstInRow={index % numBoxesPerRow === 0}
+          isLastInRow={index % numBoxesPerRow === numBoxesPerRow - 1}
         />
       ))}
     </div>

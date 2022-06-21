@@ -10,18 +10,14 @@ import { Tooltip } from "@mui/material";
 interface IProps {
   pair: IColorPair;
   flexBasis: number;
-  isFirstInRow: boolean;
+  isLastInRow: boolean;
 }
 
-export default function ColorPairBox({
-  pair,
-  flexBasis,
-  isFirstInRow,
-}: IProps) {
+export default function ColorPairBox({ pair, flexBasis, isLastInRow }: IProps) {
   return (
     <div
       className={clsx(styles.pairBox, {
-        [styles.firstInRow]: isFirstInRow,
+        [styles.lastInRow]: isLastInRow,
       })}
       style={{ flexBasis: `${flexBasis}%` }}
     >

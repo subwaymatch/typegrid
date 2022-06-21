@@ -3,13 +3,14 @@
   align-items: center;
 
   .pill {
-    width: 0.9rem;
-    height: 0.5rem;
+    width: 0.75rem;
+    height: 0.4rem;
     border-radius: 1rem;
     margin-right: 0.2rem;
   }
 
   .hexString {
-    font-size: 0.82rem;
+    font-size: 0.75rem;
+    letter-spacing: 0;
   }
 }

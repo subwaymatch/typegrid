@@ -10,7 +10,9 @@ export default function ColorDisplay({ color }: IProps) {
     <div className={styles.colorDisplay}>
       <div className={styles.pill} style={{ background: color.hex() }} />
 
-      <div className={styles.hexString}>{color.hex().substring(1)}</div>
+      <div className={styles.hexString}>
+        {color.hex().substring(1).toLowerCase()}
+      </div>
     </div>
   );
 }

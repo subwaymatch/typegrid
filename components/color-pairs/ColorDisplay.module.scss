@@ -1,0 +1,15 @@
+.colorDisplay {
+  display: flex;
+  align-items: center;
+
+  .pill {
+    width: 0.9rem;
+    height: 0.5rem;
+    border-radius: 1rem;
+    margin-right: 0.2rem;
+  }
+
+  .hexString {
+    font-size: 0.82rem;
+  }
+}

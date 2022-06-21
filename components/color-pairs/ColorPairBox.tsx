@@ -6,6 +6,8 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Link from "next/link";
 import clsx from "clsx";
 import { Tooltip } from "@mui/material";
+import Typewriter from "typewriter-effect";
+import { useState } from "react";
 
 interface IProps {
   pair: IColorPair;
@@ -14,6 +16,8 @@ interface IProps {
 }
 
 export default function ColorPairBox({ pair, flexBasis, isLastInRow }: IProps) {
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+
   return (
     <div
       className={clsx(styles.pairBox, {
@@ -23,12 +27,26 @@ export default function ColorPairBox({ pair, flexBasis, isLastInRow }: IProps) {
     >
       <div
         className={styles.preview}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
         style={{
           color: pair.fontColor.hex(),
           backgroundColor: pair.bgColor.hex(),
         }}
       >
-        Brand
+        <p>
+          {isHovering ? (
+            <Typewriter
+              options={{
+                strings: ["Hello", "World"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          ) : (
+            "Text"
+          )}
+        </p>
       </div>
 
       <div className={styles.bottomBar}>

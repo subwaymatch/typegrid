@@ -6,8 +6,10 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Link from "next/link";
 import clsx from "clsx";
 import { Tooltip } from "@mui/material";
-import Typewriter from "typewriter-effect";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { TextLoop } from "react-text-loop-next";
+import positiveWords from "data/positive-words";
+import sampleSize from "lodash/sampleSize";
 
 interface IProps {
   pair: IColorPair;
@@ -17,6 +19,11 @@ interface IProps {
 
 export default function ColorPairBox({ pair, flexBasis, isLastInRow }: IProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
+  const [wordList, setWordList] = useState<string[]>([]);
+
+  useEffect(() => {
+    setWordList(sampleSize(positiveWords, 5));
+  }, []);
 
   return (
     <div
@@ -34,19 +41,7 @@ export default function ColorPairBox({ pair, flexBasis, isLastInRow }: IProps) {
           backgroundColor: pair.bgColor.hex(),
         }}
       >
-        <p>
-          {isHovering ? (
-            <Typewriter
-              options={{
-                strings: ["Hello", "World"],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          ) : (
-            "Text"
-          )}
-        </p>
+        <p>{isHovering ? <TextLoop children={wordList} /> : "Text"}</p>
       </div>
 
       <div className={styles.bottomBar}>
